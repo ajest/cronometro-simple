@@ -1,9 +1,16 @@
-// https://www.svgrepo.com/
-const PlayIcon = (props) => (
-  <svg width={512} height={512} xmlns="http://www.w3.org/2000/svg" {...props}>
-    <title>{'ionicons-v5-c'}</title>
-    <path d="M133 440a35.37 35.37 0 0 1-17.5-4.67c-12-6.8-19.46-20-19.46-34.33V111c0-14.37 7.46-27.53 19.46-34.33a35.13 35.13 0 0 1 35.77.45l247.85 148.36a36 36 0 0 1 0 61l-247.89 148.4A35.5 35.5 0 0 1 133 440Z" />
+const PauseIcon = (props) => (
+  <svg
+    width="100%"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 494.148 494.148"
+    style={{
+      enableBackground: 'new 0 0 494.148 494.148'
+    }}
+    xmlSpace="preserve"
+    {...props}
+  >
+    <path d="M405.284 201.188 130.804 13.28C118.128 4.596 105.356 0 94.74 0 74.216 0 61.52 16.472 61.52 44.044v406.124c0 27.54 12.68 43.98 33.156 43.98 10.632 0 23.2-4.6 35.904-13.308l274.608-187.904c17.66-12.104 27.44-28.392 27.44-45.884.004-17.48-9.664-33.764-27.344-45.864z" />
   </svg>
 )
 
-export default PlayIcon
+export default PauseIcon

@@ -23,7 +23,7 @@ body {
   height: 100vh;
 }
 
-.container {
+section {
   max-width: 20em;
 }
 
@@ -36,4 +36,10 @@ menu ul {
   padding-left: 0;
   display: flex;
   justify-content: space-around;
+}
+
+menu ul li button {
+  display: flex;
+  width: 3em;
+  height: auto;
 }
