@@ -1,11 +1,11 @@
 const StopIcon = (props) => (
-    <svg
-      width="100%"
+    <svg width="100%"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 46.734 46.734"
       style={{
         enableBackground: 'new 0 0 46.734 46.734'
       }}
+      transform="scale(0.9)"
       xmlSpace="preserve"
       {...props}
     >

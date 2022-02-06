@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Button } from './components/buttons/Button'
+import PauseIcon from './components/icons/PauseIcon'
 import PlayIcon from './components/icons/PlayIcon'
 import StopIcon from './components/icons/StopIcon'
 
+let intervalId = 0
 function App () {
-  const [counter, setCounter] = useState(10000)
-  const [time, setTime] = useState('00:00')
+  const [counter, setCounter] = useState(null)
+  const [isRunning, setIsRunning] = useState(false)
 
-  function timeConvert (num) {
+  const timeConvert = (num) => {
     let hours = Math.floor(num / 60)
     let minutes = num % 60
 
@@ -21,23 +23,37 @@ function App () {
     return `${hours}:${minutes}`
   }
 
-  useEffect(() => {
-    setInterval(() => {
+  const play = () => {
+    setIsRunning(true)
+    setCounter(counter === null ? 0 : counter)
+    intervalId = setInterval(() => {
       setCounter((preValue) => preValue + 1)
     }, 1000)
-  }, [])
+  }
 
-  useEffect(() => {
-    setTime(timeConvert(counter))
-  }, [counter])
+  const stop = () => {
+    setCounter(null)
+    setIsRunning(false)
+    clearInterval(intervalId)
+  }
+
+  const pause = () => {
+    setIsRunning(false)
+    clearInterval(intervalId)
+  }
 
   return (
     <section className="container">
-      <h1>{time}</h1>
+      <h1>{timeConvert(counter)}</h1>
       <menu>
         <ul>
-          <li><Button><PlayIcon /></Button></li>
-          <li><Button><StopIcon /></Button></li>
+          <li>
+            {!isRunning
+              ? <Button onClick={play}><PlayIcon /></Button>
+              : <Button onClick={pause}><PauseIcon /></Button>
+            }
+          </li>
+          <li><Button onClick={stop}><StopIcon /></Button></li>
         </ul>
       </menu>
     </section>
